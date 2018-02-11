@@ -1,7 +1,9 @@
 {
     "name": "shadoll/sletter",
-    "description": "shadoll sLetter - main send library",
+    "description": "shadoll sLetter - e-mail send library",
     "version": "18.2.12",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": "^7.0",
         "mailgun/mailgun-php": "^2.4"
