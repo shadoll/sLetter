@@ -8,7 +8,7 @@
     },
     "autoload": {
         "psr-4": {
-            "shadoll\\sLetter": ""
+            "shadoll\\sLetter\\": ""
         }
     },
     "authors": [
