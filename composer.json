@@ -13,5 +13,10 @@
             "email": "sha@shadoll.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "shadoll\\": "lib"
+        }
+    }
     "minimum-stability": "dev"
 }
