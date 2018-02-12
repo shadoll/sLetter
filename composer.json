@@ -17,6 +17,6 @@
         "psr-4": {
             "shadoll\\": "/lib"
         }
-    }
+    },
     "minimum-stability": "dev"
 }
