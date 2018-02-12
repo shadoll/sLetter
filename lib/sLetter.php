@@ -2,8 +2,8 @@
 /**
  *
  * @author sHa <sha@shadoll.com>
- * @package shadoll/sLetter
- * @version 18.2.12
+ * @package sLetter
+ * @version 18.2.13
  *
  */
 
