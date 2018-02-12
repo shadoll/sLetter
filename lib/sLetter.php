@@ -3,7 +3,7 @@
  *
  * @author sHa <sha@shadoll.com>
  * @package sLetter
- * @version 18.2.13-5
+ * @version 18.2.13-6
  *
  */
 
@@ -16,6 +16,7 @@ class sLetter{
 	public $error = false;
 	public $status = "";
 
+	private $senderDetect = true;
 	private $sender = "mail";
 	private $header = "";
 	private $message = "";
@@ -34,6 +35,8 @@ class sLetter{
 
 	function __construct(){
 		$this->setLang(require_once(__DIR__."/lng/".$this->language.".php"));
+		if($this->senderDetect)
+			$this->detect();
 	}
 
 	function setData($data,$return=false){
@@ -107,6 +110,9 @@ class sLetter{
 	}
 
 	function detect($return=false){
+		if(empty($this->senderIP))
+		$this->senderIP = $_SERVER['REMOTE_ADDR'];
+
 		if(!empty($this->senderIP)){
 			$query = @unserialize(file_get_contents('http://ip-api.com/php/'.$this->senderIP));
 			if($query && $query['status'] == 'success'){

@@ -23,6 +23,7 @@ $letter->set([
     'fromMail' => "site@site.com", // sender email
     'fromName' => "SiteLetter", // sender name
     'toMail' => "info@site.com", // resipient email
+    'senderDetect' => true, // detect sender location by IP, default 'true'
     'senderIP' => $_SERVER['REMOTE_ADDR'],
     'mailgun_apikey' => 'key',
     'mailgun_domain' => 'mg.site.com',
