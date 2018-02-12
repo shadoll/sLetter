@@ -3,7 +3,7 @@
  *
  * @author sHa <sha@shadoll.com>
  * @package sLetter
- * @version 18.2.13-9
+ * @version 18.2.13-10
  *
  */
 
@@ -34,9 +34,14 @@ class sLetter{
 	private $logoUri = "";
 
 	function __construct(){
-		$this->setLang(require_once(__DIR__."/lng/".$this->language.".php"));
 		if($this->senderDetect)
 			$this->detect();
+	}
+
+	function loadLanguage($return=false){
+		$this->setLang(require_once(__DIR__."/lng/".$this->language.".php"));
+
+		return $return?$this->lang:$this;
 	}
 
 	function setData($data,$return=false){
@@ -54,6 +59,9 @@ class sLetter{
 	}
 
 	function setLang($data,$return=false){
+		if(empty($this->lang))
+			$this->loadLanguage();
+
 		if(empty($data) || !is_array($data))
 			return $return?$this->lang:$this;
 
@@ -91,6 +99,9 @@ class sLetter{
 	}
 
 	function message($return=false){
+		if(empty($this->lang))
+			$this->loadLanguage();
+
 		$this->message .= "<html><body style='font-family:Arial,sans-serif;'>";
 
 		if(!empty($this->logoUri))
