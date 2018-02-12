@@ -3,7 +3,7 @@
  *
  * @author sHa <sha@shadoll.com>
  * @package sLetter
- * @version 18.2.13-7
+ * @version 18.2.13-8
  *
  */
 
@@ -132,12 +132,11 @@ class sLetter{
 	}
 
 	function validate($data,$return=false){
-		if(!empty($data) && is_array($data))
-			foreach($data as $val)
-				if(empty($val)){
-					$this->error = true;
-					$this->status = "Empty value";
-				}
+		$is_valid = GUMP::is_valid($this->fields, $data);
+		if($is_valid !== true){
+			$this->error = true;
+			$this->status = $is_valid;
+		}
 
 		return $return?$this->error:$this;
 	}
