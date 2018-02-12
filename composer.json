@@ -1,7 +1,7 @@
 {
     "name": "shadoll/sletter",
     "description": "shadoll sLetter - e-mail send library",
-    "version": "18.2.12",
+    "version": "18.2.13",
     "prefer-stable": true,
     "require": {
         "php": "^7.0",
@@ -15,7 +15,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "shadoll\\": "lib"
+            "shadoll\\": "/lib"
         }
     }
     "minimum-stability": "dev"
