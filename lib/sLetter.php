@@ -3,7 +3,7 @@
  *
  * @author sHa <sha@shadoll.com>
  * @package sLetter
- * @version 18.2.13-11
+ * @version 18.2.13-12
  *
  */
 
@@ -34,6 +34,7 @@ class sLetter{
 	private $logoUri = "";
 
 	function __construct(){
+		$this->loadLanguage();
 		if($this->senderDetect)
 			$this->detect();
 	}
@@ -74,12 +75,12 @@ class sLetter{
 
 	function set($data){
 		if(!empty($data) && is_array($data))
-			foreach($data as $key=>$val){
-				if(!empty($key) && !empty($val))
+			foreach($data as $key=>$val)
+				if(!empty($key) && !empty($val)){
 					$this->{$key} = is_string($val)?trim(stripslashes($val)):$val;
-				if($key=='language')
-					$this->loadLanguage();
-			}
+					if($key=='language')
+						$this->loadLanguage();
+				}
 		return $this;
 	}
 
