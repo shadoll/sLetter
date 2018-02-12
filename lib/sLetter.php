@@ -3,7 +3,7 @@
  *
  * @author sHa <sha@shadoll.com>
  * @package sLetter
- * @version 18.2.13-10
+ * @version 18.2.13-11
  *
  */
 
@@ -59,9 +59,6 @@ class sLetter{
 	}
 
 	function setLang($data,$return=false){
-		if(empty($this->lang))
-			$this->loadLanguage();
-
 		if(empty($data) || !is_array($data))
 			return $return?$this->lang:$this;
 
@@ -77,9 +74,12 @@ class sLetter{
 
 	function set($data){
 		if(!empty($data) && is_array($data))
-			foreach($data as $key=>$val)
+			foreach($data as $key=>$val){
 				if(!empty($key) && !empty($val))
 					$this->{$key} = is_string($val)?trim(stripslashes($val)):$val;
+				if($key=='language')
+					$this->loadLanguage();
+			}
 		return $this;
 	}
 
