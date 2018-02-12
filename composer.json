@@ -1,22 +1,22 @@
 {
-    "name": "shadoll/sletter",
-    "description": "shadoll sLetter - e-mail send library",
-    "version": "18.2.13-2",
-    "prefer-stable": true,
-    "require": {
-        "php": "^7.0",
-        "mailgun/mailgun-php": "^2.4"
-    },
-    "authors": [
-        {
-            "name": "sHa",
-            "email": "sha@shadoll.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "shadoll\\": "/lib"
-        }
-    },
-    "minimum-stability": "dev"
+	"name": "shadoll/sletter",
+	"description": "shadoll sLetter - e-mail send library",
+	"prefer-stable": true,
+	"require": {
+		"php": "^7.0",
+		"mailgun/mailgun-php": "^2.4",
+		"wixel/gump": "dev-master"
+	},
+	"authors": [
+		{
+			"name": "sHa",
+			"email": "sha@shadoll.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"shadoll\\": "/lib"
+		}
+	},
+	"minimum-stability": "dev"
 }
