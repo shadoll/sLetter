@@ -3,7 +3,7 @@
  *
  * @author sHa <sha@shadoll.com>
  * @package sLetter
- * @version 18.2.13
+ * @version 18.2.13-5
  *
  */
 
@@ -45,7 +45,7 @@ class sLetter{
 
 		foreach($data as $key=>$val)
 			if(!empty($val))
-				$this->fields[$key] = is_string($val)?trim(stripslashes($val)):$val;
+				$this->fields[$key] = is_string($val)?trim(stripslashes(strip_tags($val))):$val;
 
 		return $return?$this->fields:$this;
 	}
