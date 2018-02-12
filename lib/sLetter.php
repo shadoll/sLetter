@@ -3,7 +3,7 @@
  *
  * @author sHa <sha@shadoll.com>
  * @package sLetter
- * @version 18.2.13-8
+ * @version 18.2.13-9
  *
  */
 
@@ -132,7 +132,7 @@ class sLetter{
 	}
 
 	function validate($data,$return=false){
-		$is_valid = GUMP::is_valid($this->fields, $data);
+		$is_valid = \GUMP::is_valid($this->fields, $data);
 		if($is_valid !== true){
 			$this->error = true;
 			$this->status = $is_valid;
