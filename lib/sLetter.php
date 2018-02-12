@@ -3,7 +3,7 @@
  *
  * @author sHa <sha@shadoll.com>
  * @package sLetter
- * @version 18.2.13-6
+ * @version 18.2.13-7
  *
  */
 
@@ -22,7 +22,7 @@ class sLetter{
 	private $message = "";
 	private $subject = "";
 
-	private $language = "ua";
+	private $language = "en";
 	private $lang = [];
 
 	private $fromMail = "";

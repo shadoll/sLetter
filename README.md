@@ -18,13 +18,14 @@ set mail variables:
 
 ```
 $letter->set([
-    'sender' => 'mailgun', // sender - support mail or mailgun-service
+    'language' => 'ua', // set language (en|ua|ru), default 'en'
     'logoUri' => "https://site.com/logo.png", // link to logo that showing in letter
     'fromMail' => "site@site.com", // sender email
     'fromName' => "SiteLetter", // sender name
     'toMail' => "info@site.com", // resipient email
     'senderDetect' => true, // detect sender location by IP, default 'true'
     'senderIP' => $_SERVER['REMOTE_ADDR'],
+    'sender' => 'mailgun', // sender - support mail or mailgun-service
     'mailgun_apikey' => 'key',
     'mailgun_domain' => 'mg.site.com',
 ]);
