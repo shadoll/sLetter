@@ -3,7 +3,7 @@
  *
  * @author sHa <sha@shadoll.com>
  * @package sLetter
- * @version 18.2.13-12
+ * @version 18.2.13-13
  *
  */
 
@@ -45,7 +45,7 @@ class sLetter{
 		return $return?$this->lang:$this;
 	}
 
-	function setData($data,$return=false){
+	function setData($data,$raw=false,$return=false){
 		if(empty($data) || !is_array($data))
 			return $return?$this->fields:$this;
 
@@ -54,7 +54,10 @@ class sLetter{
 
 		foreach($data as $key=>$val)
 			if(!empty($val))
-				$this->fields[$key] = is_string($val)?trim(stripslashes(strip_tags($val))):$val;
+				if(!$raw)
+					$this->fields[$key] = is_string($val)?trim(stripslashes(strip_tags($val))):$val;
+				else
+					$this->fields[$key] = is_string($val)?trim($val):$val;
 
 		return $return?$this->fields:$this;
 	}
@@ -128,8 +131,6 @@ class sLetter{
 		if(!empty($this->senderIP)){
 			$query = @unserialize(file_get_contents('http://ip-api.com/php/'.$this->senderIP));
 			if($query && $query['status'] == 'success'){
-
-
 				$this->setData([
 					'senderIP' => $this->senderIP,
 					'flag' => "<img style='height:14px; width:auto' src='http://www.geognos.com/api/en/countries/flag/".$query['countryCode'].".png'>",
@@ -137,7 +138,7 @@ class sLetter{
 					'region' => $query['regionName'],
 					'city' => $query['city'],
 					'provider' => $query['isp'],
-				]);
+				],true);
 			}
 		}
 		return $return?$this->fields:$this;
