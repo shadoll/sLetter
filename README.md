@@ -6,6 +6,8 @@ e-mail send library
 
 `composer require shadoll/sletter`
 
+https://packagist.org/packages/shadoll/sletter
+
 ## usage
 
 ```
